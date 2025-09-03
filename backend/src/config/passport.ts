@@ -27,7 +27,7 @@ if (!clientID || !clientSecret) {
       {
         clientID,
         clientSecret,
-        callbackURL: '/api/auth/google/callback',
+        callbackURL: '/api/auth/google',
         
       },
       async (accessToken, refreshToken, profile, done) => {
