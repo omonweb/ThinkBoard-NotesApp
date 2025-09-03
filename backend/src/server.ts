@@ -14,7 +14,7 @@ import rateLimiter from './middleware/rateLimiter.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 10000;
 const __dirname = path.resolve();
 
 // middleware
