@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 import {
   createNote,
   deleteNote,
@@ -8,7 +8,7 @@ import {
 } from '../controllers/notesController.js';
 import { authenticateToken } from '../middleware/auth.js';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 // All notes routes require authentication
 router.use(authenticateToken);

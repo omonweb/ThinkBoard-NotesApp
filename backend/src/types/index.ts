@@ -1,26 +1,24 @@
 import { Request } from 'express';
 
 export interface INote {
-  _id: string;
   title: string;
   content: string;
   userId: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface IUser {
-  _id: string;
   googleId: string;
   email: string;
   name: string;
   picture?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface AuthenticatedRequest extends Request {
-  user?: IUser;
+  user?: any; // Using any for now to avoid complex type conflicts
 }
 
 export interface GoogleProfile {

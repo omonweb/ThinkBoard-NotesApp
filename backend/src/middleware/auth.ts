@@ -17,7 +17,14 @@ export const authenticateToken = (
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
-    req.user = { _id: decoded.userId, email: decoded.email } as any;
+    req.user = { 
+      _id: decoded.userId, 
+      email: decoded.email,
+      googleId: '', // This will be filled when user data is fetched
+      name: '',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
     next();
   } catch (error) {
     res.status(403).json({ message: 'Invalid token' });

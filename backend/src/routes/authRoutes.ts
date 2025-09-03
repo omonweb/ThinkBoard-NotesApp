@@ -1,9 +1,9 @@
-import express from 'express';
+import express, { Router } from 'express';
 import passport from 'passport';
 import { googleAuthCallback, getCurrentUser } from '../controllers/authController.js';
 import { authenticateToken } from '../middleware/auth.js';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 // Function to configure routes after environment variables are loaded
 const configureAuthRoutes = () => {
@@ -57,6 +57,6 @@ const configureAuthRoutes = () => {
 setImmediate(configureAuthRoutes);
 
 // Get current user
-router.get('/me', authenticateToken as express.RequestHandler, getCurrentUser);
+router.get('/me', authenticateToken, getCurrentUser);
 
 export default router;
